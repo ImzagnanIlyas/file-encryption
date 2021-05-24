@@ -15,4 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("welcome");
+
+Route::get('/crypter_fichier', function () {
+    return view('crypter');
+})->name("crypter_fichier");
+
+Route::post('crypted', [App\Http\Controllers\fichierController::class, 'crypter'])->name('crypted');
