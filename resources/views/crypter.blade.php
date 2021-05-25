@@ -28,7 +28,7 @@
                     <h1 class="text-gray-600">Crypter le fichier</h1>
                 </div>
 
-                <form method="POST"  action="{{ route('crypted') }}" >
+                <form method="POST"  action="{{ route('crypted') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                         <input type="file" id="fichier" name="fichier">
