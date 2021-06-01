@@ -15,4 +15,12 @@ class fichierController extends Controller
         //return view('crypted');
         return Storage::download($storedFile.".enc");
     }
+
+    public function decrypt(Request $request){
+        $fichier = $request->file('fichier');
+        $storedFile = Storage::putFileAS("/", $fichier, $fichier->getClientOriginalName());
+        (new FileVault)->decryptCopy($storedFile);
+        //return view('crypted');
+        return Storage::download(rtrim($storedFile, '.enc'));
+    }
 }
