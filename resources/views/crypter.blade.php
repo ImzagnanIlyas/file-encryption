@@ -52,7 +52,7 @@
                     </div>
                 </form>
                 @else
-                <p>Vous pouvez utiliser la clé suivante par exemple: {{ htmlspecialchars_decode(print(FileVault::generateKey())) }}</p>
+                <p>Vous pouvez utiliser la clé suivante par exemple: {{ bin2hex(FileVault::generateKey()) }}</p>
                 <form method="POST"  action="{{ route('custom_encrypt') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="bg-white dark:bg-gray-800 sm:rounded-lg">
