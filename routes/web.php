@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use SoareCostin\FileVault\FileVault;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,9 @@ Route::get('/crypter_fichier/{id}', function ($id) {
     return view('crypter', ['id'=>$id]);
 })->name("crypter_fichier");
 
-Route::post('crypted', [App\Http\Controllers\fichierController::class, 'crypter'])->name('crypted');
+Route::post('encrypt', [App\Http\Controllers\fichierController::class, 'encrypt'])->name('encrypt');
 
 Route::post('decrypt', [App\Http\Controllers\fichierController::class, 'decrypt'])->name('decrypt');
+
+Route::post('custom_encrypt', [App\Http\Controllers\fichierController::class, 'custom_encrypt'])->name('custom_encrypt');
 

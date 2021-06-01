@@ -68,7 +68,7 @@
 
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
                             <div class="flex items-center">
-                                <div class="ml-4 text-lg leading-7 font-semibold"> <a href="#" class="text-gray-900 dark:text-white">Cryptage personnalisé</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"> <a href="{{ route('crypter_fichier', ['id'=>3]) }}" class="text-gray-900 dark:text-white">Cryptage personnalisé</a></div>
                             </div>
 
                             <div class="ml-12">

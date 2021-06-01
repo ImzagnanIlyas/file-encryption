@@ -8,7 +8,7 @@ use SoareCostin\FileVault\FileVault;
 
 class fichierController extends Controller
 {
-    public function crypter(Request $request){
+    public function encrypt(Request $request){
         $fichier = $request->file('fichier');
         $storedFile = Storage::putFileAS("/", $fichier, $fichier->getClientOriginalName());
         (new FileVault)->encryptCopy($storedFile);
@@ -20,7 +20,14 @@ class fichierController extends Controller
         $fichier = $request->file('fichier');
         $storedFile = Storage::putFileAS("/", $fichier, $fichier->getClientOriginalName());
         (new FileVault)->decryptCopy($storedFile);
-        //return view('crypted');
         return Storage::download(rtrim($storedFile, '.enc'));
+    }
+
+    public function custom_encrypt(Request $request){
+        $fichier = $request->file('fichier');
+        $key = $request->input('key');
+        $storedFile = Storage::putFileAS("/", $fichier, $fichier->getClientOriginalName());
+        (new FileVault)->key($key)->encryptCopy($storedFile);
+        return Storage::download($storedFile.".enc");
     }
 }
