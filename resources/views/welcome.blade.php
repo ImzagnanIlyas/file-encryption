@@ -56,12 +56,12 @@
 
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700">
                             <div class="flex items-center">
-                                <div class="ml-4 text-lg leading-7 font-semibold"> <a href="#" class="text-gray-900 dark:text-white">Changer la clé de l'application</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"> <a href="{{ route('crypter_fichier', ['id'=>4]) }}" class="text-gray-900 dark:text-white">Décryptage personnalisé</a></div>
                             </div>
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Veuillez noter que la clé de chiffrement doit avoir une longueur de 16 octets pour le chiffrement AES-128-CBC et 32 octets pour le chiffrement AES-256-CBC.
+                                    Decrypter un fichier avec une clé personnalisé. Veuillez noter que la clé de chiffrement doit avoir une longueur de 16 octets pour le chiffrement AES-128-CBC et 32 octets pour le chiffrement AES-256-CBC.
                                 </div>
                             </div>
                         </div>

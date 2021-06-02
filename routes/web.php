@@ -28,3 +28,5 @@ Route::post('decrypt', [App\Http\Controllers\fichierController::class, 'decrypt'
 
 Route::post('custom_encrypt', [App\Http\Controllers\fichierController::class, 'custom_encrypt'])->name('custom_encrypt');
 
+Route::post('custom_decrypt', [App\Http\Controllers\fichierController::class, 'custom_decrypt'])->name('custom_decrypt');
+

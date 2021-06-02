@@ -51,11 +51,26 @@
                         <button type="submit">valider</button>
                     </div>
                 </form>
-                @else
+                @elseif ($id==3)
                 <p>Vous pouvez utiliser la clé suivante par exemple: {{ bin2hex(FileVault::generateKey()) }}</p>
                 <form method="POST"  action="{{ route('custom_encrypt') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="bg-white dark:bg-gray-800 sm:rounded-lg">
+                        <input type="text" id="key" name="key">
+                    </div>
+                    <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                        <input type="file" id="fichier" name="fichier">
+                    </div>
+
+                    <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
+                        <button type="submit">valider</button>
+                    </div>
+                </form>
+                @elseif ($id==4)
+                <form method="POST"  action="{{ route('custom_decrypt') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="bg-white dark:bg-gray-800 sm:rounded-lg">
+                        <label for="key">Entrez une clé</label>
                         <input type="text" id="key" name="key">
                     </div>
                     <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
