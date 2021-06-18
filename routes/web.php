@@ -13,14 +13,17 @@ use SoareCostin\FileVault\FileVault;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect('/', '/fr');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("welcome");
+Route::group(['prefix' => '{locale}'], function() {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name("welcome");
 
-Route::get('/crypter_fichier/{id}', function ($id) {
-    return view('crypter', ['id'=>$id]);
-})->name("crypter_fichier");
+    Route::get('/crypter_fichier/{id}', function ($locale, $id) {
+        return view('crypter', ['id'=>$id]);
+    })->name("crypter_fichier");
+});
 
 Route::post('encrypt', [App\Http\Controllers\fichierController::class, 'encrypt'])->name('encrypt');
 
